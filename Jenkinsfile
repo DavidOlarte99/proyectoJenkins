@@ -1,20 +1,20 @@
 pipeline {
-  agent any
-    stages {
-      stage ('test') {
-        steps {
-          sh "mvn clean compile test"
-        }
-    }
-  stage ('Build application') {
-    steps {
-      sh "mvn -f pom.xml clean install -Dmaven.test.skip=true"
-    }
-  }
-  stage ('Pasamos a produccion') {
-    steps {
-      echo "Movemos al servidor y lo ponemos en produccion"
-      }
-    }
-  }
+agent any
+stages {
+stage ('test') {
+steps {
+sh "mvn clean compile test"
+}
+}
+stage ('Build application') {
+steps {
+sh "mvn -f pom.xml clean install -Dmaven.test.skip=true"
+}
+}
+stage ('Pasamos a produccion') {
+steps {
+echo "Movemos al servidor y lo ponemos en produccion"
+}
+}
+}
 }
