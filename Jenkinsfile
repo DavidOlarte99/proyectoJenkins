@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'master'}
+  agent any
     stages {
       stage ('test') {
         steps {
@@ -11,9 +11,9 @@ pipeline {
       sh "mvn -f pom.xml clean install -Dmaven.test.skip=true"
     }
   }
-  stage (‘Pasamos a producción’) {
+  stage ('Pasamos a produccion') {
     steps {
-      echo "Movemos al servidor y lo ponemos en producción"
+      echo "Movemos al servidor y lo ponemos en produccion"
       }
     }
   }
